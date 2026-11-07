@@ -1,0 +1,20 @@
+﻿<div class="static-avatar-wrapper" [ngClass]="'size-' + size">
+  <!-- Soft Ambient Glow Aura -->
+  <div *ngIf="showGlow" class="avatar-glow-orb"></div>
+  <div *ngIf="showGlow" class="avatar-glow-ring"></div>
+
+  <!-- Decorative Sparkles -->
+  <div class="sparkle sparkle-1">✦</div>
+  <div class="sparkle sparkle-2">★</div>
+  <div class="sparkle sparkle-3">✧</div>
+
+  <!-- Static Ghibli Avatar Portal -->
+  <div class="avatar-portal">
+    <img
+      class="ghibli-avatar-img"
+      [src]="avatarSrc"
+      alt="Kavitha S - Ghibli Illustration"
+      draggable="false"
+    />
+  </div>
+</div>

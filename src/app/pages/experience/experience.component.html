@@ -1,0 +1,73 @@
+<section class="experience-page">
+  <!-- Section Header -->
+  <div class="section-header">
+    <div class="profile-header-badge">
+      <img [src]="portfolio.profile.originalPhotoUrl" alt="Kavitha S" class="badge-photo" />
+      <span class="badge-name">Kavitha S</span>
+      <span class="badge-role">• Professional Journey</span>
+    </div>
+    <span class="section-tag">Career Milestones</span>
+    <h2>MY PROFESSIONAL JOURNEY</h2>
+    <p>Hands-on corporate and internship experiences that honed my full-stack development, architectural design, and collaborative engineering skills.</p>
+  </div>
+
+  <!-- Vertical Timeline -->
+  <div class="timeline-container">
+    <div class="timeline-line"></div>
+
+    <div
+      *ngFor="let exp of portfolio.experiences; let idx = index"
+      class="timeline-card-wrapper"
+      [class.left-aligned]="idx % 2 === 0"
+      [class.right-aligned]="idx % 2 !== 0"
+    >
+      <!-- Timeline Node Marker -->
+      <div class="timeline-node">
+        <span class="node-pulse"></span>
+        <span class="node-inner">0{{ idx + 1 }}</span>
+      </div>
+
+      <!-- Experience Content Card -->
+      <div class="experience-card glass-card">
+        <div class="card-top-meta">
+          <span class="company-badge">{{ exp.company }}</span>
+          <span class="duration-pill">{{ exp.duration }}</span>
+        </div>
+
+        <h3 class="role-title">{{ exp.role }}</h3>
+        <span *ngIf="exp.mode" class="mode-tag">{{ exp.mode }}</span>
+
+        <p class="role-summary">{{ exp.description }}</p>
+
+        <!-- Highlights Checklist -->
+        <div class="highlights-box">
+          <h4>Key Responsibilities &amp; Learnings:</h4>
+          <ul>
+            <li *ngFor="let h of exp.highlights">
+              <span class="check-icon">✓</span>
+              <span>{{ h }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tech Badges -->
+        <div class="tech-row">
+          <span *ngFor="let t of exp.technologies" class="tech-badge">
+            {{ t }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom CTA Row -->
+  <div class="page-bottom-actions">
+    <a routerLink="/portfolio/education" class="btn-primary">
+      <span>View Educational Background</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+  </div>
+</section>

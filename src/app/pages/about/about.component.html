@@ -1,0 +1,131 @@
+<section class="about-page">
+  <!-- Section Header -->
+  <div class="section-header">
+    <span class="section-tag">Biography &amp; Background</span>
+    <h2>GET TO KNOW ME</h2>
+    <p>A passionate software engineer blending strong backend fundamentals with creative frontend engineering.</p>
+  </div>
+
+  <!-- Hero Grid: Static Avatar Card + Bio Highlights -->
+  <div class="about-hero-grid">
+    <!-- Left: Static Avatar Card -->
+    <div class="avatar-card glass-card">
+      <div class="avatar-holder">
+        <div class="static-avatar-portal">
+          <img
+            class="static-avatar-img"
+            [src]="portfolio.profile.originalPhotoUrl"
+            alt="Kavitha S - Original Photograph"
+          />
+        </div>
+      </div>
+      <div class="avatar-meta">
+        <h3 class="meta-name">{{ portfolio.profile.name }}</h3>
+        <span class="meta-role">{{ portfolio.profile.headline }}</span>
+        <span class="meta-location">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          {{ portfolio.profile.location }}
+        </span>
+      </div>
+
+      <div class="resume-download-box">
+        <a [href]="portfolio.profile.resumeUrl" download="KAVITHA-RESUME.pdf" class="btn-primary" style="width: 100%;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download Resume (PDF)
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Profile Info Cards & Core Philosophy -->
+    <div class="bio-content">
+      <div class="profile-narrative glass-card">
+        <h3 class="card-title">Professional Summary</h3>
+        <p class="summary-paragraph">
+          {{ portfolio.profile.summary }}
+        </p>
+        <p class="summary-sub">
+          I am eager to contribute to forward-thinking software development teams where I can design high-performance microservices, create intuitive user interfaces, and apply analytical problem-solving to real-world challenges.
+        </p>
+
+        <!-- Quick Facts Matrix -->
+        <div class="facts-grid">
+          <div class="fact-item">
+            <span class="fact-label">Degree</span>
+            <span class="fact-value">{{ portfolio.profile.degree }}</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">College</span>
+            <span class="fact-value">{{ portfolio.profile.college }}</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Graduation Year</span>
+            <span class="fact-value highlight-val">{{ portfolio.profile.graduationYear }}</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Academic CGPA</span>
+            <span class="fact-value highlight-val">{{ portfolio.profile.cgpa }}</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Email</span>
+            <a [href]="'mailto:' + portfolio.profile.email" class="fact-link">{{ portfolio.profile.email }}</a>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Socials</span>
+            <div class="fact-socials">
+              <a [href]="portfolio.profile.github" target="_blank" rel="noopener noreferrer" class="social-chip">GitHub</a>
+              <a [href]="portfolio.profile.linkedin" target="_blank" rel="noopener noreferrer" class="social-chip">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personal Journey & Focus Areas -->
+  <div class="journey-section">
+    <div class="journey-card glass-card">
+      <div class="journey-icon">🚀</div>
+      <h4>My Journey in Tech</h4>
+      <p>
+        My journey into technology began with a deep curiosity for how computer logic solves intricate human problems. Pursuing Artificial Intelligence and Data Science at Nandha Engineering College gave me a rigorous foundation in algorithms and mathematical modeling, while self-directed building propelled me into full-stack Java, Spring Boot, and Angular development.
+      </p>
+    </div>
+
+    <div class="journey-card glass-card">
+      <div class="journey-icon">💡</div>
+      <h4>Engineering Mindset</h4>
+      <p>
+        I value clean architectures, modular separation of concerns, and robust error handling. From crafting distributed microservice pipelines with Eureka and Spring Cloud Gateway to designing reactive, accessible Angular user interfaces, I love taking an idea from whiteboard architecture to production reality.
+      </p>
+    </div>
+
+    <div class="journey-card glass-card">
+      <div class="journey-icon">🌱</div>
+      <h4>Continuous Growth</h4>
+      <p>
+        Having completed intensive analyst training at Capgemini and hands-on web development at CubeAI Solutions, I constantly stay updated with modern developments across Java 21, Spring Boot microservices, containerization with Docker, and interactive UI frameworks.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bottom CTA Row -->
+  <div class="about-bottom-cta">
+    <a routerLink="/portfolio/skills" class="btn-primary">
+      <span>Explore Technical Toolkit</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+    <a routerLink="/portfolio/projects" class="btn-secondary">
+      <span>View Featured Projects</span>
+    </a>
+  </div>
+</section>

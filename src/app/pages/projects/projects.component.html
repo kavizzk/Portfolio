@@ -1,0 +1,171 @@
+﻿<section class="projects-page">
+  <!-- Section Header -->
+  <div class="section-header">
+    <span class="section-tag">Featured Work</span>
+    <h2>THINGS I'VE BUILT</h2>
+    <p>A collection of projects where I explored technologies, solved problems and transformed ideas into working applications.</p>
+  </div>
+
+  <!-- Featured Project Banner (STAYVISTA) -->
+  <div *ngIf="portfolio.projects[0] as featured" class="featured-project-container">
+    <div class="featured-card glass-card">
+      <div class="featured-visual-col">
+        <div class="img-wrapper">
+          <img [src]="featured.image" [alt]="featured.title" class="project-img" />
+          <div class="visual-overlay"></div>
+          <span class="featured-badge">★ FEATURED ENTERPRISE PROJECT</span>
+        </div>
+      </div>
+
+      <div class="featured-info-col">
+        <div class="project-index">PROJECT {{ featured.number }}</div>
+        <h3 class="featured-title">{{ featured.title }}</h3>
+        <span class="featured-subtitle">{{ featured.subtitle }}</span>
+
+        <p class="featured-desc">
+          {{ featured.description }}
+        </p>
+
+        <!-- Key Features List -->
+        <div class="features-block">
+          <h4 class="features-heading">Architecture &amp; Core Highlights</h4>
+          <ul class="features-list">
+            <li *ngFor="let feat of featured.keyFeatures">
+              <span class="feat-bullet">▹</span>
+              <span>{{ feat }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tech Badges -->
+        <div class="tech-tags-row">
+          <span *ngFor="let tech of featured.technologies" class="tech-badge">
+            {{ tech }}
+          </span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="project-actions">
+          <a
+            [href]="featured.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>View on GitHub</span>
+          </a>
+
+          <button class="btn-secondary" (click)="openModal(featured)">
+            <span>Inspect Architecture Details</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid of Other Projects (Projects 02 to 05) -->
+  <div class="projects-grid">
+    <div
+      *ngFor="let project of portfolio.projects.slice(1)"
+      class="project-card glass-card"
+    >
+      <div class="card-visual">
+        <img [src]="project.image" [alt]="project.title" class="card-img" />
+        <div class="card-overlay"></div>
+        <span class="project-num-tag">#{{ project.number }}</span>
+      </div>
+
+      <div class="card-body">
+        <span class="project-category-tag">{{ project.tag }}</span>
+        <h3 class="card-title">{{ project.title }}</h3>
+        <p class="card-desc">{{ project.description }}</p>
+
+        <!-- Tech Badges -->
+        <div class="card-techs">
+          <span *ngFor="let t of project.technologies" class="tech-badge">
+            {{ t }}
+          </span>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="card-footer">
+          <a
+            [href]="project.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="card-gh-btn"
+          >
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>View Repository</span>
+          </a>
+
+          <button class="card-details-btn" (click)="openModal(project)">
+            Details &rarr;
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Project Details Modal -->
+  <div *ngIf="selectedProject" class="project-modal-backdrop" (click)="closeModal()">
+    <div class="project-modal-dialog glass-card" (click)="$event.stopPropagation()">
+      <button class="modal-close-btn" (click)="closeModal()" aria-label="Close modal">
+        ✕
+      </button>
+
+      <div class="modal-header-img">
+        <img [src]="selectedProject.image" [alt]="selectedProject.title" />
+        <span class="modal-tag">{{ selectedProject.tag }}</span>
+      </div>
+
+      <div class="modal-body-content">
+        <div class="modal-title-row">
+          <span class="modal-idx">PROJECT {{ selectedProject.number }}</span>
+          <h3>{{ selectedProject.title }}</h3>
+          <span *ngIf="selectedProject.subtitle" class="modal-subtitle">{{ selectedProject.subtitle }}</span>
+        </div>
+
+        <p class="modal-description">{{ selectedProject.description }}</p>
+
+        <div class="modal-features">
+          <h4>Key Technical Specifications</h4>
+          <ul>
+            <li *ngFor="let item of selectedProject.keyFeatures">
+              <span class="bullet">▹</span>
+              <span>{{ item }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-tech-stack">
+          <h4>Technologies Used</h4>
+          <div class="tags-wrap">
+            <span *ngFor="let tech of selectedProject.technologies" class="tech-badge">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+
+        <div class="modal-actions-row">
+          <a
+            [href]="selectedProject.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>Open Source on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

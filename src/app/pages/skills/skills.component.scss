@@ -1,0 +1,209 @@
+﻿.skills-page {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Category Filters */
+.category-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+
+  .filter-pill {
+    padding: 8px 20px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-accent);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: rgba(182, 156, 255, 0.1);
+      border-color: var(--border-accent);
+      color: #FFFFFF;
+    }
+
+    &.active {
+      background: var(--accent-gradient);
+      color: #0E0D14;
+      font-weight: 600;
+      border-color: transparent;
+      box-shadow: 0 4px 18px rgba(182, 156, 255, 0.35);
+    }
+  }
+}
+
+/* Skills Categories Grid */
+.skills-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.category-card {
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+
+  .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border-subtle);
+
+    .cat-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: rgba(182, 156, 255, 0.12);
+      border: 1px solid rgba(182, 156, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .cat-title {
+      font-size: 1.15rem;
+      color: #FFFFFF;
+    }
+
+    .cat-count {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-accent);
+    }
+  }
+
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .skill-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-sm);
+      transition: all 0.25s ease;
+
+      .chip-main {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .bullet-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #7E7E94;
+          transition: background 0.2s ease;
+        }
+
+        .skill-name {
+          font-size: 0.92rem;
+          font-weight: 500;
+          color: #D1D1DF;
+        }
+      }
+
+      .skill-level-pill {
+        font-size: 0.72rem;
+        padding: 2px 8px;
+        border-radius: var(--radius-full);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-muted);
+        font-family: var(--font-accent);
+      }
+
+      &:hover {
+        background: rgba(182, 156, 255, 0.08);
+        border-color: rgba(182, 156, 255, 0.2);
+        transform: translateX(4px);
+
+        .chip-main .bullet-dot {
+          background: var(--accent-lavender);
+          box-shadow: 0 0 8px var(--accent-lavender);
+        }
+
+        .chip-main .skill-name {
+          color: #FFFFFF;
+        }
+      }
+
+      &.primary-skill {
+        border-color: rgba(182, 156, 255, 0.15);
+
+        .chip-main .bullet-dot {
+          background: var(--accent-lavender);
+        }
+      }
+    }
+  }
+}
+
+/* Philosophy Card */
+.tech-philosophy-card {
+  padding: 2.2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+
+  .philosophy-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+    min-width: 320px;
+
+    .icon-circle {
+      font-size: 2.2rem;
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      background: rgba(182, 156, 255, 0.1);
+      border: 1px solid rgba(182, 156, 255, 0.2);
+    }
+
+    .text-block {
+      h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.4rem;
+        color: #FFFFFF;
+      }
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .skills-categories-grid {
+    grid-template-columns: 1fr;
+  }
+  .tech-philosophy-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

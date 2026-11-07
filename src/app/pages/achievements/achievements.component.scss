@@ -1,0 +1,141 @@
+﻿.achievements-page {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+
+  .filter-pill {
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-accent);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: rgba(182, 156, 255, 0.1);
+      border-color: var(--border-accent);
+      color: #FFFFFF;
+    }
+
+    &.active {
+      background: var(--accent-gradient);
+      color: #0E0D14;
+      font-weight: 600;
+      border-color: transparent;
+      box-shadow: 0 4px 18px rgba(182, 156, 255, 0.35);
+    }
+  }
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.achievement-card {
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+
+  .ach-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .category-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-lavender);
+      background: rgba(182, 156, 255, 0.1);
+      border: 1px solid rgba(182, 156, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    .score-pill {
+      font-size: 0.78rem;
+      font-family: var(--font-accent);
+      font-weight: 700;
+      color: #4ADE80;
+      background: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+  }
+
+  .ach-title {
+    font-size: 1.25rem;
+    color: #FFFFFF;
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
+  }
+
+  .ach-org {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #A0A0B5;
+    margin-bottom: 1.2rem;
+  }
+
+  .ach-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.6rem;
+    flex: 1;
+  }
+
+  .ach-footer {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+
+    .verified-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: #8C8C9E;
+      font-family: var(--font-accent);
+
+      svg {
+        color: var(--accent-lavender);
+      }
+    }
+  }
+}
+
+.page-bottom-actions {
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+}

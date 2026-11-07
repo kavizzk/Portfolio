@@ -1,0 +1,88 @@
+<section class="skills-page">
+  <!-- Section Header -->
+  <div class="section-header">
+    <div class="profile-header-badge">
+      <img [src]="portfolio.profile.originalPhotoUrl" alt="Kavitha S" class="badge-photo" />
+      <span class="badge-name">Kavitha S</span>
+      <span class="badge-role">• Technical Toolkit</span>
+    </div>
+    <span class="section-tag">Capabilities &amp; Proficiencies</span>
+    <h2>MY TECHNICAL TOOLKIT</h2>
+    <p>A structured breakdown of technologies, frameworks, tools and architectural principles I use to build robust applications.</p>
+  </div>
+
+  <!-- Interactive Category Filter Tabs -->
+  <div class="category-filters">
+    <button
+      class="filter-pill"
+      [class.active]="selectedCategory === 'all'"
+      (click)="selectCategory('all')"
+    >
+      All Technologies
+    </button>
+    <button
+      *ngFor="let cat of portfolio.skillCategories"
+      class="filter-pill"
+      [class.active]="selectedCategory === cat.id"
+      (click)="selectCategory(cat.id)"
+    >
+      {{ cat.name }}
+    </button>
+  </div>
+
+  <!-- Skills Categories Grid -->
+  <div class="skills-categories-grid">
+    <div
+      *ngFor="let category of filteredCategories"
+      class="category-card glass-card"
+    >
+      <!-- Category Card Header -->
+      <div class="cat-header">
+        <div class="cat-icon-badge">
+          <span class="cat-icon-symbol">⚡</span>
+        </div>
+        <div class="cat-info">
+          <h3 class="cat-title">{{ category.name }}</h3>
+          <span class="cat-count">{{ category.skills.length }} Technologies</span>
+        </div>
+      </div>
+
+      <!-- Skills Badges & Capabilities List -->
+      <div class="skills-list">
+        <div
+          *ngFor="let skill of category.skills"
+          class="skill-chip"
+          [class.primary-skill]="skill.isPrimary"
+        >
+          <div class="chip-main">
+            <span class="bullet-dot"></span>
+            <span class="skill-name">{{ skill.name }}</span>
+          </div>
+          <span *ngIf="skill.level" class="skill-level-pill">{{ skill.level }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core CS Highlights Box -->
+  <div class="tech-philosophy-card glass-card">
+    <div class="philosophy-content">
+      <div class="icon-circle">🎯</div>
+      <div class="text-block">
+        <h4>Practical Engineering Over Abstract Numbers</h4>
+        <p>
+          I focus on foundational mastery rather than subjective percentage meters. My development workflow prioritizes OOP design principles, RESTful microservices, reactive state management with Angular signals and RxJS, database query optimization, and test-driven reliability.
+        </p>
+      </div>
+    </div>
+    <div class="action-block">
+      <a routerLink="/portfolio/projects" class="btn-primary">
+        <span>See Skills in Action</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+<section class="education-page">
+  <!-- Section Header -->
+  <div class="section-header">
+    <div class="profile-header-badge">
+      <img [src]="portfolio.profile.originalPhotoUrl" alt="Kavitha S" class="badge-photo" />
+      <span class="badge-name">Kavitha S</span>
+      <span class="badge-role">• Academic Foundation</span>
+    </div>
+    <span class="section-tag">Academic Foundation</span>
+    <h2>MY EDUCATIONAL BACKGROUND</h2>
+    <p>A consistent track record of academic excellence, rigorous problem-solving discipline, and continuous technical curiosity.</p>
+  </div>
+
+  <!-- Academic Timeline Cards -->
+  <div class="education-grid">
+    <div
+      *ngFor="let edu of portfolio.education; let idx = index"
+      class="education-card glass-card"
+    >
+      <div class="edu-top-row">
+        <span class="edu-num-badge">0{{ idx + 1 }}</span>
+        <span class="edu-period">{{ edu.period }}</span>
+      </div>
+
+      <h3 class="edu-degree">{{ edu.degree }}</h3>
+      <h4 class="edu-institution">{{ edu.institution }}</h4>
+
+      <div class="edu-score-card">
+        <span class="score-type">{{ edu.scoreType }}</span>
+        <span class="score-value">{{ edu.score }}</span>
+      </div>
+
+      <p *ngIf="edu.details" class="edu-details">{{ edu.details }}</p>
+    </div>
+  </div>
+
+  <!-- Academic Highlights Box -->
+  <div class="academic-summary-box glass-card">
+    <div class="summary-metric">
+      <span class="metric-number">8.80</span>
+      <span class="metric-label">College CGPA</span>
+    </div>
+    <div class="summary-metric">
+      <span class="metric-number">90.66%</span>
+      <span class="metric-label">HSC (12th)</span>
+    </div>
+    <div class="summary-metric">
+      <span class="metric-number">99.20%</span>
+      <span class="metric-label">SSLC (10th)</span>
+    </div>
+    <div class="summary-metric">
+      <span class="metric-number">2026</span>
+      <span class="metric-label">Graduation Year</span>
+    </div>
+  </div>
+
+  <!-- Bottom CTA Row -->
+  <div class="page-bottom-actions">
+    <a routerLink="/portfolio/achievements" class="btn-primary">
+      <span>View Milestones &amp; Certifications</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+  </div>
+</section>
